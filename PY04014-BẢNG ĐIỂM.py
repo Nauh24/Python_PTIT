@@ -16,18 +16,19 @@ class Student:
             return 'TB'
         return 'YEU'
     def __str__(self):
-        return self.id+' '+self.name+' '+'{:.1f}'.format(self.avg)+' '+self.rank()
+        return self.id+' '+self.name+' '+str(round((self.avg*10.0)/10.0,1))+' '+self.rank()
 
 t=int(input())
 list=[]
 for i in range(t):
     id='HS%02d'%(i+1)
     ten=input()
-    a=[float[j] for j in input().split()]
+    a=[float(j) for j in input().split()]
     total=sum(a)+a[0]+a[1]
     list.append(Student(id,ten,total))
-    for i in list:
-        print(i)
+list.sort(key=lambda x:(-x.avg))
+for i in list:
+     print(i)
 """
 3
 Luu Thuy Nhi
