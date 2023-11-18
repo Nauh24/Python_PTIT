@@ -3,23 +3,21 @@ from sys import stdin
 
 for t in range(int(input())):
     n,k=map(int,input().split())
-
     a=[]
     cnt=0
     for line in stdin :
         a+=list(map(int,line.split()))
         if len(a)==n: break
 
-
     minn=10**10;
     for i in range(n):
         res =a[i];
-        len=0
+        length=0
         for j in range(i,n):
             res=math.gcd(a[j],res)
             if res==k:
-                len=j-i+1
-                minn=min(len,minn)
+                length=j-i+1
+                minn=min(length,minn)
                 break
     if minn==10**10:
         print(-1)

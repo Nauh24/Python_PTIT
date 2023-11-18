@@ -3,15 +3,15 @@ class HoaDon:
         self.id=id
         self.name=name
         self.hieuChiSo=hieuChiSo
-
+        self.total()
 
     def total(self):
         if self.hieuChiSo<=50: return self.hieuChiSo*100+self.hieuChiSo*100*0.02
-        elif self.hieuChiSo<=100: return self.hieuChiSo*150*0.03+self.hieuChiSo*150
-        else:return self.hieuChiSo*200*0.05+self.hieuChiSo*200
+        elif self.hieuChiSo<=100: return (50*100+(self.hieuChiSo-50)*150)*1.03
+        else:return (50*100+50*150+(self.hieuChiSo-100)*200)*1.05
     def __str__(self):
-        return self.id+' '+self.name+' '+str(self.total())
-i=1
+        return self.id+' '+self.name+' '+str(round(self.total()))
+i=0
 list=[]
 for n in range(int(input())):
     id="KH%02d"%(i+1)
@@ -22,6 +22,7 @@ for n in range(int(input())):
     hieu=new-old
     hd=HoaDon(id,name,hieu)
     list.append(hd)
+list.sort(key=lambda x:(-x.total()))
 for i in list:
     print(i)
 
