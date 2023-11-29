@@ -1,3 +1,2 @@
-import math
-n=int(input())
-print(math.sqrt(n))
+s=input()
+print(s[::-1])
