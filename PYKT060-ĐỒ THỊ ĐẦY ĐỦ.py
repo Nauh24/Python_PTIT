@@ -7,28 +7,32 @@ def bfs(u):
             if vs[i]==0:
                 q.append(i)
                 vs[i]=1
-
-n,m,k=map(int,input().split())
+n=int(input())
+m=int(input())
 ke=[]
 for i in range(n+1):
     ke.append([])
-vs=[0]*(n+1)
 for i in range(m):
     x,y=map(int,input().split())
     ke[x].append(y)
     ke[y].append(x)
-bfs(k)
-ok=False
+vs=[0]*(n+1)
+bfs(1)
+cnt=0
 for i in range(1,n+1):
-    if vs[i]==0:
-        print(i)
-        ok=True
-if not ok: print(0)
+    if vs[i]==1:
+        cnt+=1
+if cnt==n: print('NO')
+else : print('YES')
 
 '''
-6 4 2
-1 3
-2 3
+3
+2
 1 2
-4 5
+2 3
+
+4
+2
+1 3
+2 4
 '''
